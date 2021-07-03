@@ -1,0 +1,57 @@
+.header{
+    display: grid;
+    grid-template-rows:1fr min-content min-content 1fr;
+    row-gap: 1.5rem;
+    grid-template-columns: minmax(min-content,max-content);
+    justify-content: center;    
+    background-image:linear-gradient(rgba($color-secondary,0.95), rgba($color-secondary,0.95)),
+                     url("../img/hero.jpeg");
+    background-size: cover;
+    background-position:center;
+    padding: 5rem;
+    padding-top: 3rem;
+
+    grid-column: content-start 1 / center-end 6;
+   
+    @media only screen and(max-width:$bp-medium){
+        grid-column: 1 / -1;   
+    }
+
+    &__logo{
+        width: 10rem;
+        justify-self: center;
+    }
+    &__btn{
+        align-self: start;
+        justify-self: start;
+    }
+    &__seen-on{
+        display: grid;
+        align-items: center;
+        gap: 2rem;
+        grid-template-columns: 1fr max-content 1fr;
+        color: $color-grey-light-2;
+
+        &::before,&::after{
+            content: "";
+            display: block;
+            background-color: currentColor;
+            height: 2px;
+        }
+        
+    }
+    &__seen-on--logos{
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4,1fr);
+        gap: 3rem;
+        img{
+            height: 2.2rem;
+            filter: brightness(70%);
+
+            @media only screen and(max-width:$bp-small){
+                height: 2rem;    
+            }
+        }
+    }
+}
